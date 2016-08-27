@@ -71,6 +71,7 @@
 
     // 背景颜色
     self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+    self.frame = [UIScreen mainScreen].bounds;
     
     CGFloat maxWidth = -100;
     for (int i=0; i<titles.count; i++) {
@@ -96,6 +97,7 @@
     CGFloat popViewHeight = (SMButtonHeight) * titles.count + 15;
     CGRect frame = popView.frame;
     frame.size = CGSizeMake(popViewWidth, popViewHeight);
+    frame.origin = CGPointMake(100, 100);
     popView.frame = frame;
     [self addSubview:popView];
     self.popView = popView;

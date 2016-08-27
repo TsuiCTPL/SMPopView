@@ -13,40 +13,23 @@
 
 @property (nonatomic, weak) SMPopView *popView;
 
-@property (nonatomic, strong) NSArray *titles;
-
-@property (nonatomic, strong) NSArray *images;
 @end
 
 @implementation ViewController
 
--(NSArray *)titles
-{
-    if (_titles == nil) {
-        _titles = @[@"简易案件",@"登登记登记记",@"登记",@"登登记登记记",@"登记"];
-    }
-    return _titles;
-}
 
--(NSArray *)images
-{
-    if (_images == nil) {
-        _images = @[@"zip", @"xls", @"zip", @"xls", @"zip"];
-    }
-    return _images;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    SMPopView *popView = [SMPopView popViewForTitles:self.titles withImages:self.images];
+    [self initPopView];
+}
+
+- (void)initPopView
+{
+    SMPopView *popView = [SMPopView popViewForTitles:@[@"相册",@"文章列表", @"点赞", @"添加好友"] withImages:@[@"album", @"draft", @"like", @"new_friend"]];
     popView.delegate = self;
-    popView.frame = [UIScreen mainScreen].bounds;
-    popView.position = CGPointMake(200, 100);
-    popView.imageName = @"popover_background_right@2x";
     self.popView = popView;
     [self.view addSubview:popView];
-    
 }
 
 - (IBAction)popViewClick:(id)sender {
@@ -54,8 +37,11 @@
     self.popView.hidden = NO;
 }
 
+/**
+ *  点击popView的item后的回调方法，传回Item的索引值
+ */
 - (void)popView:(SMPopView *)popView didClickItemIndex:(NSInteger)index
 {
-    NSLog(@"%@", self.titles[index]);
+    NSLog(@"%zd", index);
 }
 @end
