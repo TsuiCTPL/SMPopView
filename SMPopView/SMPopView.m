@@ -41,8 +41,6 @@
 
 @implementation SMPopView
 
-
-
 -(NSArray *)buttonArray
 {
     if (_buttonArray == nil) {
@@ -54,7 +52,6 @@
 
 + (instancetype)popViewForTitles: (NSArray *)titles withImages: (NSArray *)images
 {
-    
     SMPopView *popView = [[SMPopView alloc] init];
     [popView initView: titles withImages:images];
     popView.hidden = YES;
@@ -68,7 +65,6 @@
 
 - (void)initView: (NSArray *)titles withImages: (NSArray *)images
 {
-
     // 背景颜色
     self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     self.frame = [UIScreen mainScreen].bounds;
@@ -102,9 +98,7 @@
     [self addSubview:popView];
     self.popView = popView;
     
-    
     UIImageView *bgImageView = [[UIImageView alloc] init];
-    
     UIImage *image = [UIImage imageNamed:@"SMPopView.bundle/popover_background"];
     // 设置左边端盖宽度
     NSInteger leftCapWidth = image.size.width * 0.5;

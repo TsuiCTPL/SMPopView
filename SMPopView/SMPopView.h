@@ -18,7 +18,7 @@
 /**
  *  点击item后，通过实现代理传回索引
  */
-- (void)popView:(SMPopView *)popView didClickItemIndex: (NSInteger)index;
+- (void)popView:(SMPopView *)popView didClickItemIndex:(NSInteger)index;
 
 @end
 
@@ -26,14 +26,12 @@
 
 @property (nonatomic, weak) id<SMPopViewDelegate> delegate;
 
-+ (instancetype)popViewForTitles: (NSArray *)titles withImages: (NSArray *)images;
++ (instancetype)popViewForTitles:(NSArray *)titles withImages:(NSArray *)images;
 
 /* 气泡的位置 */
 @property (nonatomic, assign) CGPoint position;
-
 /** 气泡的背景图片 */
 @property (nonatomic, weak) NSString *imageName;
-
 /** 按钮字体颜色 */
 @property (nonatomic, weak) UIColor *fontColor;
 
